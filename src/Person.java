@@ -1,20 +1,23 @@
-public class Person {
+public abstract class Person {
 
     protected String firstName;
     protected String lastName;
-    protected String partner;
     protected int age;
     protected boolean isMarried;
+    protected Person partner;
 
-    protected String previousLastName;
-
-    public Person(String firstName, String lastName, String partner, int age, boolean isMarried) {
+    public Person(String firstName, String lastName, int age, boolean isMarried) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.partner = partner;
         this.age = age;
         this.isMarried = isMarried;
+        this.partner=null;
     }
+
+    public abstract boolean isRetired();
+    public abstract void registerPartnership(Person partner);
+
+    public abstract void deregisterPartnership(boolean returnToPreviousLastName);
 
     public int getAge() {
         return age;
@@ -40,21 +43,11 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getPartner() {
+    public Person getPartner() {
         return partner;
     }
 
-    public void setPartner(String partner) {
+    public void setPartner(Person partner) {
         this.partner = partner;
-    }
-
-    // Troubles here
-
-    public String getPreviousLastName() {
-        return lastName;
-    }
-
-    public void setPreviousLastName(String lastName) {
-        this.previousLastName = lastName;
     }
 }

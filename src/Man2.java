@@ -1,5 +1,5 @@
-public class Man2 extends Person{
-    private String previousLastName;
+public class Man2 {
+    /*private String previousLastName;
     boolean isRetired = true;
     private String partner;
     private boolean toPreviousLastName;
@@ -27,6 +27,6 @@ public class Man2 extends Person{
         }
         this.partner = null;
         System.out.println("After divorce: " + this.previousLastName + ", Lastname: " + this.lastName + ", To previous last name - " + returnToPreviousLastName);
-    }
+    }*/
 
 }

@@ -1,6 +1,7 @@
-public class Woman2 extends Person{
+public class Woman2 {
+}
 
-    //private String previousLastName;
+    /*//private String previousLastName;
 
     private boolean toPreviousLastName;
 
@@ -18,13 +19,13 @@ public class Woman2 extends Person{
         System.out.println("Partner is: " + this.partner + ", Last name: " + this.lastName + ", Is married: " + this.isMarried);
     }
 
-    /*public String getPreviousLastName() {
+    public String getPreviousLastName() {
         return previousLastName;
     }*/
 
    /* public void setPreviousLastName(String previousLastName, Woman2 woman2) {
         this.previousLastName = woman2.getLastName();
-    }*/
+    }
 
     public void deregisterPartnership(boolean returnToPreviousLastName, Woman2 woman2) {
         if (returnToPreviousLastName) {
@@ -34,4 +35,4 @@ public class Woman2 extends Person{
         }
         System.out.println("After divorce, last Name:" + this.previousLastName + ", To previous last name - " + returnToPreviousLastName);
     }
-}
+}*/

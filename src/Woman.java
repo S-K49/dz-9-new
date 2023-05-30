@@ -1,38 +1,59 @@
 public class Woman extends Person{
 
     private String previousLastName;
-
-    private boolean toPreviousLastName;
+    private boolean returnPreviousLastName;
 
     private boolean isRetired = true;
 
-    public Woman(String firstName, String lastName, String partner, int age, boolean isMarried) {
-        super(firstName, lastName, partner, age, isMarried);
+    /*public Woman(String firstName, String lastName, int age, boolean isMarried, Man partner) {
+        super(firstName, lastName, age, isMarried);
+        this.previousLastName = lastName;
+        this.setPartner(partner);
+        this.getPartner().setPartner(this.partner);
+    }*/
+
+   public Woman(String firstName, String lastName, int age, boolean isMarried) {
+        super(firstName, lastName, age, isMarried);
+        this.previousLastName = lastName;
+    }
+
+    public String getPreviousLastName() {
+        return lastName;
+    }
+
+    public void setPreviousLastName(String lastName) {
+        this.previousLastName = lastName;
     }
 
     // Version 1
-
-    public void isRetired() {
+    @Override
+    public boolean isRetired() {
         if(age>=60) {
-            System.out.println(isRetired);
+            System.out.printf("%s is retired\n", getFirstName());
+            return true;
         }
         else {
-            System.out.println("Did not reach 60 yet");
+            System.out.printf("%s did not reach 60 yet\n", getFirstName());
+            return false;
         }
     }
 
-    public void registerPartner(Man man) {
-        this.partner = getPartner();
-        this.setLastName(man.getLastName());
+    @Override
+    public void registerPartnership(Person partner) {
+        setPartner(partner);
+        getPartner().setPartner(this);
+        this.setLastName(partner.getLastName());
         this.isMarried = true;
         System.out.println("After marriage partner is: " + this.partner + ", Last name: " + this.lastName + ", Is married: " + this.isMarried);
     }
 
-    public void deregisterPartner(boolean toPreviousLastName, Woman woman) {
+    @Override
+    public void deregisterPartnership(boolean returnToPreviousLastName) {
         this.partner = null;
-        this.toPreviousLastName = toPreviousLastName;
         this.isMarried = false;
-        this.setPreviousLastName(woman.lastName);
-        System.out.println("After divorce partner is: " + this.partner + ", Previous last name: " + this.toPreviousLastName + ", Is married: " + this.isMarried + ", Last name:" + this.getPreviousLastName());
+        if (returnToPreviousLastName) {
+            this.setPreviousLastName(lastName);
+            System.out.println("After divorce partner is: " + this.partner + ", Previous last name: " + this.previousLastName + ", Is married: " + this.isMarried);
+        }
     }
 }
